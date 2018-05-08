@@ -1,6 +1,19 @@
 # Order Book Programming Problem
+Order Book was a small project that I did over a weekend as a coding challenge for an interview that I had.
 
-## Background
+## Contents
+
+- [Problem Background](#background)
+- [Problem](#problem)
+- [Solution](#solution)
+    - [How to build](#how-to-build)
+    - [How to run](#how-to-run)
+    - [Solution Description](#solution-description)
+    - [Questions](#questions)
+- [License](#license)
+---
+
+## Problem Background
 
 Suppose your great aunt Gertrude dies and leaves you $3000 which you decide you want to invest in the Acme Internet Widget Company (stock symbol:AIWC). You are willing to pay up to $30 per share of AIWC. So you log in to your online trading account and enter a limit order: "BUY 100 AIWC @ $30". It's a limit order because that's most you're willing to pay. You'd be willing to pay less than $30, but not more than $30. Your order will sit around in the market until you get your 100 shares. A limit order to buy is called a "bid".
 
@@ -21,21 +34,22 @@ Read more about the problem in the [`Problem.html`](http://htmlpreview.github.io
 ## Solution
 
 
-### How to Build
+### How to build
 
     $ cd PROJECT_PATH/bin
     $ cmake .
     $ cmake --build . --target all -- -j 4
 
-### How to run using file input:
+### How to run
 
     $ ./pricer target-size input-file How to run using console input:
     $ ./pricer target-size
 
-### Description
+### Solution Description
 The program coded in C++ and uses a multimap for storing the orders and an unordered_map for looking up the orders based on their order-id. The source code style lint-ed based on [“**Google C++ Style Guide**”](https://google.github.io/styleguide/cppguide.html). The program has been checked with `valgrind` for memory leakage. The result of the Profiling shows that on the pricer.in file and size-target 200, at peak just 5.1 megabyte used. Look at the end of this page for more info about the profiling.
 The code could be optimized for more clarity using better design pattern but not done because of the time constraints.
 
+### Questions
 ### What is the time complexity for processing an Add Order message?
 A STL multimap been used for storing the orders sorted by their prices. Since multimap implemented using red-black tree, the insert have runtime complexity of O(log n).
 
@@ -56,3 +70,5 @@ A STL unordered_map been used for storing the order-id to an iterator into the o
 ### Memory Profiling of the Pricer program
 ![Memory Profiling](https://github.com/panaali/orderbook/blob/master/img/Memory_Profiling.png)
 
+## License [![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
+To the extent possible under law, [panaali](https://github.com/panaali) has waived all copyright and related or neighboring rights to this work.
