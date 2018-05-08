@@ -52,7 +52,7 @@ A STL unordered_map been used for storing the order-id to an iterator into the o
 
 
 ### CPU Profiling of the Pricer program
-![CPU Profiling](https://github.com/panaali/orderbook/blob/master/img/CPU_Profiler.png)
+![CPU Profiling](https://github.com/panaali/orderbook/blob/master/img/CPU_Profiling.png)
 
 ### Memory Profiling of the Pricer program
 ![Memory Profiling](https://github.com/panaali/orderbook/blob/master/img/Memory_Profiling.png)
