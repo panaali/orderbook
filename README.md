@@ -10,6 +10,8 @@ Order Book was a small project that I did over a weekend as a coding challenge f
     - [How to run](#how-to-run)
     - [Solution Description](#solution-description)
     - [Questions](#questions)
+    - [CPU Profiling](#cpu-profiling-of-the-pricer-program)
+    - [Memory Profiling](#memory-profiling-of-the-pricer-program)
 - [License](#license)
 ---
 
@@ -64,10 +66,10 @@ A STL unordered_map been used for storing the order-id to an iterator into the o
 • Using cache where it’s possible
 
 
-#### CPU Profiling of the Pricer program
+### CPU Profiling of the Pricer program
 ![CPU Profiling](https://github.com/panaali/orderbook/blob/master/img/CPU_Profiling.png)
 
-#### Memory Profiling of the Pricer program
+### Memory Profiling of the Pricer program
 ![Memory Profiling](https://github.com/panaali/orderbook/blob/master/img/Memory_Profiling.png)
 
 ## License[![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
