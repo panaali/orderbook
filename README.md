@@ -14,6 +14,44 @@ The set of all standing bids and asks is called a "limit order book", or just a 
 
 ## Problem
 
-Your task is to write a program, Pricer, that analyzes such a log file. Pricer takes one command-line argument: target-size. Pricer then reads a market data log on standard input. As the book is modified, Pricer prints (on standard output) the total expense you would incur if you bought target-size shares (by taking as many asks as necessary, lowest first), and the total income you would receive if you sold target-size shares (by hitting as many bids as necessary, highest first). Each time the income or expense changes, it prints the changed value.
+Your task is to write a program, Pricer, that analyzes such a log file. Pricer takes one command-line argument: `target-size`. Pricer then reads a market data log on standard input. As the book is modified, Pricer prints (on standard output) the total expense you would incur if you bought target-size shares (by taking as many asks as necessary, lowest first), and the total income you would receive if you sold target-size shares (by hitting as many bids as necessary, highest first). Each time the income or expense changes, it prints the changed value.
 
 Read more about the problem in the [`Problem.html`](https://github.com/panaali/orderbook/blob/master/problem.html) file.
+
+## Solution
+
+
+### How to Build
+
+    $ cd PROJECT_PATH/bin
+    $ cmake .
+    $ cmake --build . --target all -- -j 4
+
+### How to run using file input:
+
+    $ ./pricer target-size input-file How to run using console input:
+    $ ./pricer target-size
+
+### Description
+The program coded in C++ and uses a multimap for storing the orders and an unordered_map for looking up the orders based on their order-id. The source code style lint-ed based on [“**Google C++ Style Guide**”](https://google.github.io/styleguide/cppguide.html). The program has been checked with `valgrind` for memory leakage. The result of the Profiling shows that on the pricer.in file and size-target 200, at peak just 5.1 megabyte used. Look at the end of this page for more info about the profiling.
+The code could be optimized for more clarity using better design pattern but not done because of the time constraints.
+
+### What is the time complexity for processing an Add Order message?
+A STL multimap been used for storing the orders sorted by their prices. Since multimap implemented using red-black tree, the insert have runtime complexity of O(log n).
+
+### What is the time complexity for processing a Reduce Order message?
+A STL unordered_map been used for storing the order-id to an iterator into the orders multimap. Since unordered_map implemented using hash map, the lookup have runtime complexity of O(1) and erasing from orders multimap using iterator have runtime complexity of O(1) thus in total it takes time complexity of Reduce Order is O(1).
+
+### If your implementation were put into production and found to be too slow, what ideas would you try out to improve its performance?
+• CPU Profiling and Optimization and rewriting parts that are bottlenecks
+• Memory optimization using tools like valgrind
+• Using GPU computing
+• Using data types that have less overheads • Using better Hash functions
+• Using cache where it’s possible
+
+
+### CPU Profiling of the Pricer program
+![enter image description here](https://github.com/panaali/orderbook/blob/master/img/CPU_Profiler.png)
+
+### Memory Profiling of the Pricer program
+![enter image description here](https://github.com/panaali/orderbook/blob/master/img/Memory_Profiling.png)
