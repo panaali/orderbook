@@ -16,7 +16,6 @@ The set of all standing bids and asks is called a "limit order book", or just a 
 
 Your task is to write a program, Pricer, that analyzes such a log file. Pricer takes one command-line argument: `target-size`. Pricer then reads a market data log on standard input. As the book is modified, Pricer prints (on standard output) the total expense you would incur if you bought target-size shares (by taking as many asks as necessary, lowest first), and the total income you would receive if you sold target-size shares (by hitting as many bids as necessary, highest first). Each time the income or expense changes, it prints the changed value.
 
-<<<<<<< HEAD
 Read more about the problem in the [`Problem.html`](https://github.com/panaali/orderbook/blob/master/problem.html) file.
 
 ## Solution
