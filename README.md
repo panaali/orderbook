@@ -3,7 +3,7 @@ Order Book was a small project that I did over a weekend as a coding challenge f
 
 ## Contents
 
-- [Problem Background](#background)
+- [Problem Background](#problem-background)
 - [Problem](#problem)
 - [Solution](#solution)
     - [How to build](#how-to-build)
@@ -50,13 +50,13 @@ The program coded in C++ and uses a multimap for storing the orders and an unord
 The code could be optimized for more clarity using better design pattern but not done because of the time constraints.
 
 ### Questions
-### What is the time complexity for processing an Add Order message?
+#### What is the time complexity for processing an Add Order message?
 A STL multimap been used for storing the orders sorted by their prices. Since multimap implemented using red-black tree, the insert have runtime complexity of O(log n).
 
-### What is the time complexity for processing a Reduce Order message?
+#### What is the time complexity for processing a Reduce Order message?
 A STL unordered_map been used for storing the order-id to an iterator into the orders multimap. Since unordered_map implemented using hash map, the lookup have runtime complexity of O(1) and erasing from orders multimap using iterator have runtime complexity of O(1) thus in total it takes time complexity of Reduce Order is O(1).
 
-### If your implementation were put into production and found to be too slow, what ideas would you try out to improve its performance?
+#### If your implementation were put into production and found to be too slow, what ideas would you try out to improve its performance?
 • CPU Profiling and Optimization and rewriting parts that are bottlenecks
 • Memory optimization using tools like valgrind
 • Using GPU computing
@@ -64,11 +64,11 @@ A STL unordered_map been used for storing the order-id to an iterator into the o
 • Using cache where it’s possible
 
 
-### CPU Profiling of the Pricer program
+#### CPU Profiling of the Pricer program
 ![CPU Profiling](https://github.com/panaali/orderbook/blob/master/img/CPU_Profiling.png)
 
-### Memory Profiling of the Pricer program
+#### Memory Profiling of the Pricer program
 ![Memory Profiling](https://github.com/panaali/orderbook/blob/master/img/Memory_Profiling.png)
 
-## License [![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
+## License[![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
 To the extent possible under law, [panaali](https://github.com/panaali) has waived all copyright and related or neighboring rights to this work.
